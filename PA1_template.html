@@ -357,8 +357,16 @@ display: none;
 <div id="setup" class="section level2">
 <h2>Setup</h2>
 <pre class="r"><code># Load necessary libraries
-library(dplyr)
-library(ggplot2)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
 
 # Read the dataset (activity.csv should already be in your repo folder)
 activity &lt;- read.csv(&quot;activity.csv&quot;)
@@ -436,8 +444,7 @@ activity_imputed$day_type &lt;- ifelse(activity_imputed$weekday %in% c(&quot;Sat
 average_steps_weekday_weekend &lt;- activity_imputed %&gt;%
   group_by(day_type, interval) %&gt;%
   summarise(average_steps = mean(steps))</code></pre>
-<pre><code>## `summarise()` has grouped output by
-## &#39;day_type&#39;. You can override using the
+<pre><code>## `summarise()` has grouped output by &#39;day_type&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre class="r"><code># Panel plot comparing weekday and weekend activity
 ggplot(average_steps_weekday_weekend, aes(x = interval, y = average_steps)) +
